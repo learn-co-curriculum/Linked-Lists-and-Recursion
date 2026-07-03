@@ -1,27 +1,62 @@
 from linked_list import LinkedList
 
+def main():
+
+    ids = LinkedList()
+
+    # Load initial IDs
+    initial_ids = [101, 205, 309, 412, 515]
+
+    for item in initial_ids:
+        ids.insert_at_end(item)
+
+    print("=" * 40)
+    print("INITIAL LINKED LIST")
+    print("=" * 40)
+
+    ids.display()
+
+    print()
+
+    print("=" * 40)
+    print("SUM OF IDS")
+    print("=" * 40)
+
+    total = ids.sum_ids()
+    print(f"Total = {total}")
+
+    print()
+
+    print("=" * 40)
+    print("SEARCH")
+    print("=" * 40)
+
+    target = 309
+
+    if ids.search(target):
+        print(f"{target} was found in the list.")
+    else:
+        print(f"{target} was NOT found.")
+
+    print()
+
+    target = 999
+
+    if ids.search(target):
+        print(f"{target} was found.")
+    else:
+        print(f"{target} was NOT found.")
+
+    print()
+
+    print("=" * 40)
+    print("REVERSE LINKED LIST")
+    print("=" * 40)
+
+    ids.reverse()
+
+    ids.display()
+
+
 if __name__ == "__main__":
-    """
-    Use this file to create a LinkedList instance and perform operations 
-    like insertion, recursion-based sum, search, and reverse.
-    """
-
-    # TODO: 1) Create a LinkedList instance
-    
-
-    # TODO: 2) Insert some sample data using insert_at_front or insert_at_end
-    
-    # TODO: 3) Display the list to verify insertion
-    
-
-    # TODO: 4) Call recursive_sum and print the result
-    
-
-    # TODO: 5) Call recursive_search with a target and print result
-    
-
-    # TODO: 6) Call recursive_reverse, then display the reversed list
-    
-
-
-# 
+    main()
