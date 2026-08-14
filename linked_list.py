@@ -3,27 +3,40 @@ class Node:
     """
     A Node class to store integer data and a reference to the next node.
     """
+    """
+    TODO:
+    - Assign the provided 'data' to an instance variable.
+    - Initialize 'next' to None.
+    """
 
-    def __init__(self, data):
-        """
-        TODO:
-        - Assign the provided 'data' to an instance variable.
-        - Initialize 'next' to None.
-        """
-        pass
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = next
+
+    def get_next(self):
+        return self.next
+
+    def set_next(self, next):
+        self.next = next
+
+    def get_data(self):
+        return self.data
+
+    def set_data(self, data):
+        self.data = data
 
 
-class LinkedList:
+class LinkedList(object):
     """
     A singly linked list that holds Node objects and performs operations using recursion.
     """
 
-    def __init__(self):
+    def __init__(self, head=None):
         """
         TODO:
         - Initialize 'head' to None to represent an empty list.
         """
-        pass
+        self.head = head
 
     def insert_at_front(self, data):
         """
