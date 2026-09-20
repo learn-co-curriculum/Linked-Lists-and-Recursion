@@ -1,88 +1,262 @@
-# Lab: Linked Lists and Recursion  
-**Lab GitHub Repo**: [Linked Lists and Recursion](https://github.com/learn-co-curriculum/Linked-Lists-and-Recursion)
-
----
+# Linked Lists and Recursion Lab
 
 ## Overview
-In this lab, we’ll apply **linked lists** and **recursion** to build a small prototype for managing a list of data. Imagine a junior developer assigned to maintain a simple employee roster, where IDs are stored in a linked list. You’ve been asked to implement **recursive** functionalities such as summing IDs, reversing the list in-place, and searching for a particular ID.
 
-By focusing on **linked lists** (for dynamic insertion/deletion) and **recursion** (for elegant traversal), you’ll gain hands-on experience with node-based data structures—common in many low-level or performance-sensitive applications.
+This project demonstrates the use of a **singly linked list** and **recursion** in Python.
 
----
+The linked list stores integer values inside `Node` objects. The `LinkedList` class provides methods for inserting nodes, calculating the sum of all values recursively, searching for a target value recursively, reversing the linked list recursively, and displaying the contents of the list.
 
-## Task 1: Define the Problem
-
-1. **Load or create** an initial linked list of integer IDs.  
-2. **Enable recursive functionality** to:
-   - **Sum** all node data in the list.  
-   - **Reverse** the list in-place.  
-   - **Search** for a given ID.  
-3. **Present** or print the result for each operation in a user-friendly format.
-
-**The Challenge**: Demonstrate your understanding of linked lists while using recursion to solve day-to-day tasks such as searching and reversing data.
+The purpose of this lab is to practice working with node-based data structures and recursive problem solving.
 
 ---
 
-## Task 2: Determine the Design
+## Project Structure
 
-### Linked List Structure
-
-- **App / Main**  
-  Drive the creation and manipulation of the linked list.  
-
-- **Node Class**  
-  Each node stores an **integer data** and a pointer/reference to `next`.  
-
-- **LinkedList Class**  
-  - `head` references the first node.  
-  - Methods to **insert**, **sum**, **reverse**, and **search**.  
-
----
-
-## Task 3: Develop, Test, and Refine the Code
-
-### Set Up
-
-#### Fork and Clone
-1. Go to the provided **GitHub repository link**.  
-2. Fork the repository to your GitHub account.  
-3. Clone the forked repository to your local machine.  
-
-#### Open and Run
-1. Open the project in your preferred Python-friendly environment (VSCode, PyCharm, etc.).  
-
-### Implementation Details
-
-1. **Create a feature branch** (e.g., `feature/linked-list-lab`).  
-2. **Create the `Node` and `LinkedList` classes**:
-   - **Node** class with `data` and `next`.  
-   - **LinkedList** class to house `head` and methods.
-3. **Manage Linked List Insertion**:
-   - `insert_at_front(data)` → O(1).  
-   - *(Optional)* `insert_at_end(data)` → O(n) to traverse to the end.
-4. **Use Recursion**:
-   - **Sum**: Returns `0` if node is `None`, otherwise `node.data + recurse(node.next)`.  
-   - **Reverse**: Re-point each node’s `next` to the **previous** node until the list is reversed.  
-   - **Search**: Returns `True` if a node’s `data` matches the target; stops if it hits `None`.
-5. **Run Tests** (if provided) or manually test:
-   - Insert some sample data, then call each recursive method.  
-   - Print the list or results to confirm correctness.
-6. **Push feature branch** and open a PR on GitHub.
-7. **Merge** to `main` once reviewed.
+```text
+.
+├── README.md
+├── __init__.py
+├── linked_list.py
+├── main.py
+└── tests/
+    ├── __init__.py
+    └── test_linked_list.py
+```
 
 ---
 
-## Task 4: Document and Maintain
+## Features
 
-### Best Practice Documentation Steps
+The project includes the following functionality:
 
-- **Add Comments**: Clarify logic for recursion, highlight base vs. recursive cases.  
-- **Explain Intent**: Make it clear why you’re using recursion in a particular method (e.g., elegance, clarity, demonstration).  
-- **README**: Update with instructions on how to run the code, test, and interpret results.  
-- **Clean Up**:
-  - Remove any debugging prints or stale branches.  
-  - Ensure your `.gitignore` is updated to exclude unnecessary files.
+- Create individual `Node` objects
+- Create an empty `LinkedList`
+- Insert nodes at the front of the list
+- Insert nodes at the end of the list
+- Recursively calculate the sum of all node values
+- Recursively search for a target value
+- Recursively reverse the linked list
+- Display the linked list in a readable format
 
-## Submission
-Once the lab is complete, all tests are passing, and you've pushed the completed code to 
-your forked repo on GitHub, submit your GitHub repo through Canvas using CodeGrade.
+---
+
+## Linked List Structure
+
+Each node contains:
+
+- `data` — the integer value stored in the node
+- `next` — a reference to the next node in the linked list
+
+The `LinkedList` class stores a reference to the first node using `head`.
+
+Example:
+
+```text
+head
+ ↓
+5 -> 10 -> 25 -> 50 -> 99 -> None
+```
+
+---
+
+## Recursion
+
+This lab uses recursion for three linked list operations.
+
+### Recursive Sum
+
+The recursive sum method adds the value of the current node to the sum of the remaining nodes.
+
+The base case occurs when the current node is `None`, which returns `0`.
+
+Example:
+
+```text
+5 + 10 + 25 + 50 + 99 = 189
+```
+
+### Recursive Search
+
+The recursive search method checks each node for a target value.
+
+- Returns `True` if the target is found
+- Returns `False` if the end of the list is reached without finding the target
+
+Example:
+
+```python
+new_list.recursive_search(25)
+```
+
+Output:
+
+```text
+True
+```
+
+### Recursive Reverse
+
+The recursive reverse method changes each node's `next` reference so the linked list points in the opposite direction.
+
+Before:
+
+```text
+5 -> 10 -> 25 -> 50 -> 99 -> None
+```
+
+After:
+
+```text
+99 -> 50 -> 25 -> 10 -> 5 -> None
+```
+
+---
+
+## Running the Project
+
+This project does not require any third-party Python packages.
+
+From the project directory, run:
+
+```bash
+python main.py
+```
+
+Example output:
+
+```text
+5 -> 10 -> 25 -> 50 -> 99 -> None
+189
+True
+99 -> 50 -> 25 -> 10 -> 5 -> None
+```
+
+The output demonstrates:
+
+1. The original linked list
+2. The recursive sum of all node values
+3. A recursive search for the value `25`
+4. The recursively reversed linked list
+
+---
+
+## Running the Tests
+
+The project uses Python's built-in `unittest` framework.
+
+Run the test suite with:
+
+```bash
+python -m unittest tests/test_linked_list.py
+```
+
+Successful test output:
+
+```text
+.....
+----------------------------------------------------------------------
+Ran 5 tests
+
+OK
+```
+
+The tests verify:
+
+- Inserting nodes at the front of the list
+- Calculating the sum of an empty linked list
+- Calculating the recursive sum
+- Recursive searching
+- Recursive list reversal
+
+---
+
+## Files
+
+### `linked_list.py`
+
+Contains the `Node` and `LinkedList` classes.
+
+The `LinkedList` class includes:
+
+```text
+insert_at_front()
+insert_at_end()
+recursive_sum()
+recursive_search()
+recursive_reverse()
+display()
+```
+
+### `main.py`
+
+Creates a sample linked list and demonstrates the available linked list and recursive operations.
+
+### `tests/test_linked_list.py`
+
+Contains the automated tests used to verify the linked list implementation.
+
+---
+
+## Example
+
+The sample list created in `main.py` is:
+
+```text
+5 -> 10 -> 25 -> 50 -> 99 -> None
+```
+
+The recursive sum returns:
+
+```text
+189
+```
+
+Searching for `25` returns:
+
+```text
+True
+```
+
+After recursively reversing the list:
+
+```text
+99 -> 50 -> 25 -> 10 -> 5 -> None
+```
+
+---
+
+## Concepts Practiced
+
+This lab reinforces the following Python and computer science concepts:
+
+- Classes and objects
+- Singly linked lists
+- Nodes and references
+- Traversing linked lists
+- Recursive functions
+- Base cases
+- Recursive cases
+- In-place data structure modification
+- Automated testing with `unittest`
+
+---
+
+## Testing Status
+
+All provided tests are currently passing:
+
+```text
+5 tests passed
+```
+
+---
+
+## Screenshot
+
+### Testing Suite Success
+
+![Passing Test Suite](./screenshots/screenshot.png)
+
+## Author
+
+Created by Matthew Swanberg as part of Course 8 Module 7 (Linked Lists and Recursion)
